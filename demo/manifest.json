@@ -1,0 +1,42 @@
+{
+	"manifest_version": 2,
+	"name": "Chrome插件demo",
+	"version": "1.0",
+	"description": "Chrome插件demo",
+	"icons":
+	{
+		"48": "img/avatar.png",
+		"128": "img/avatar.png"
+	},
+	"browser_action": 
+	{
+		"default_icon": "img/avatar.png",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": 
+	[
+		{
+			"matches": ["https://www.baidu.com/*"],
+			"js": ["js/content-script.js"]
+		}
+	],
+	"permissions":
+    [
+        "contextMenus",
+        "tabs",
+        "notifications",
+        "webRequest",
+        "webRequestBlocking",
+        "storage",
+        "http://*/*",
+        "https://*/*"
+    ],
+	"web_accessible_resources": 
+	[
+		"inject.js"
+	],
+	"background":
+    {
+				"page": "background.html"
+    }
+}
